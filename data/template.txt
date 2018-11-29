@@ -1,0 +1,45 @@
+《 O
+咕 O
+哩 O
+美 O
+》 O
+带 O
+来 O
+北 B-LOCATION
+海 I-LOCATION
+风 O
+情 O
+
+1 B-TIME
+9 I-TIME
+7 I-TIME
+8 I-TIME
+3 O
+4 O
+1 O
+2 O
+6 O
+5 O
+0 O
+0 O
+0 O
+0 O
+. O
+1 O
+3 O
+
+上 B-LOCATION
+海 I-LOCATION
+综 O
+合 O
+指 O
+数 O
+日 O
+K O
+线 O
+图 O
+( O
+图 O
+片 O
+) O
+
