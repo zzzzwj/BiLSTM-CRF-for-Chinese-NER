@@ -1,32 +1,28 @@
-import sys, pickle, os, random
-import numpy as np
+import pickle, random
 
-def read_corpus(corpus_path):
+
+def read_file(file_path):
     data = []
-    with open(corpus_path, encoding='utf-8') as fr:
-        lines = fr.readlines()
-    sent_, tag_ = [], []
+    with open(file_path, encoding='utf-8') as f:
+        lines = f.readlines()
+    sent_list, tag_list = [], []
     for line in lines:
         if line != '\n':
             [char, label] = str.split(line.rstrip(), ' ')
-            sent_.append(char)
-            tag_.append(label)
+            sent_list.append(char)
+            tag_list.append(label)
         else:
-            data.append((sent_, tag_))
-            sent_, tag_ = [], []
+            data.append((sent_list, tag_list))
+            sent_list, tag_list = [], []
 
     return data
+
 
 def sentence2id(sent, word2id):
     sentence_id = []
     for word in sent:
         sentence_id.append(word2id[word])
     return sentence_id
-
-def random_embedding(vocab, embedding_dim):
-    embedding_mat = np.random.uniform(-0.25, 0.25, (len(vocab), embedding_dim))
-    embedding_mat = np.float32(embedding_mat)
-    return embedding_mat
 
 
 def pad_sequences(sequences, pad_mark=0):
@@ -59,12 +55,13 @@ def batch_yield(data, batch_size, vocab, tag2label, shuffle=False):
     if len(seqs) != 0:
         yield seqs, labels
 
-def GenerateDictionary(filepaths):
+
+def generate_dictionary(file_paths):
     lines = []
     data = []
     print("Reading data...")
-    for filepath in filepaths:
-        f = open(filepath, 'rt')
+    for file_path in file_paths:
+        f = open(file_path, 'rt')
         lines += f.readlines()
     sentence = []
     tags = []
