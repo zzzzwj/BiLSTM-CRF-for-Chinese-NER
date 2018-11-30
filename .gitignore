@@ -1,6 +1,12 @@
 # python cache
 __pycache__/
 
+# data
+data/result.txt
+data/train.txt
+data/dev.txt
+data/test.content.txt
+
 # model file #
 model_save/
 
