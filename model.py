@@ -102,7 +102,7 @@ class BiLSTM_CRF(object):
             feed_dict, _ = self.get_feed_dict(seqs, labels, self.lr, self.dropout_keep_prob)
             _, loss_train, _ = sess.run([self.train_op, self.loss, self.global_step],
                                                          feed_dict=feed_dict)
-            print('\r{} batch:{}/{}, epoch:{}/{}, loss:{:.6}'.format(
+            print('{} batch:{}/{}, epoch:{}/{}, loss:{:.6}\r'.format(
                 time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), step + 1, num_batches, epoch + 1, self.epoch_num, loss_train), end='')
         print()
         if self.dev_data is not None:

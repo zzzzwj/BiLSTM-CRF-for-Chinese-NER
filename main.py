@@ -14,7 +14,6 @@ if __name__ == '__main__':
 
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
-    # config.gpu_options.per_process_gpu_memory_fraction = 0.2
 
     parser = argparse.ArgumentParser(description='BiLSTM-CRF for Chinese NER task')
     parser.add_argument('--train_data', type=str, default=None)
